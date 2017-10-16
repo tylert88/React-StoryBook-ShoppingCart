@@ -54,13 +54,15 @@ storiesOf('Message', module)
       { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },
 ]
 
+
+
 // SHOPPING CART HEADER
   storiesOf('Shopping Cart', module)
     .add('Header', () => <CartHeader />)
     .add('Footer', () => <CartFooter copyright="1999" />)
-    .add('Item', () => <CartItem item={ cartItem } />)
     .add('Items', () => <CartItems items={ items } />)
-    .add('ShoppingCart', () => <ShoppingCart copyright="2012" items={ items } products={ products } />)
+    .add('Item', () => <CartItem item={ cartItem } />)
+    .add('ShoppingCart', () => <ShoppingCart copyright="2012" />)
     .add('AddItem', () => <AddItem products={ products } itemAdded={ action('Item was added') }  />)
 
 

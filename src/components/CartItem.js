@@ -1,7 +1,4 @@
 import React from 'react'
-import 'materialize-css/dist/css/materialize.min.css'
-
-
 
 const CartItem = ({ item }) => (
   <div className="collection-item">
@@ -18,8 +15,5 @@ const CartItem = ({ item }) => (
     </div>
   </div>
 )
-
-
-
 
 export default CartItem

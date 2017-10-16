@@ -18,6 +18,7 @@ const AddItem = ({ products, itemAdded }) => {
     })
   }
 
+
   return (
     <form className="container" onSubmit={ itemWasAdded } >
       <h3>Add Item</h3>
