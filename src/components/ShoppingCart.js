@@ -72,16 +72,37 @@ class ShoppingCart extends React.Component {
     return json._embedded.products
   }
 
+// POST THE DATA FROM AN ADDED ITEM TO THE SERVER
+  itemWasAdded = async (item) => {
+      const response = await fetch(item.product._links.items.href, {
+        method: 'POST',
+        body: JSON.stringify({ quantity: item.quantity }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
+      })
+      const newItem = await response.json()
+      newItem.product = this.state.products.byId[newItem.product.id]
+
+      this.setState({
+        items: [
+          newItem,
+          ...this.state.items,
+        ]
+      })
+    }
+
 // LET THE USER KNOW THAT THE ITEM WAS ADDED
-  itemWasAdded = (item) => {
-    item.id = this.state.items.length
-    this.setState({
-      items: [
-        item,
-        ...this.state.items,
-      ]
-    })
-  }
+  // itemWasAdded = (item) => {
+  //   item.id = this.state.items.length
+  //   this.setState({
+  //     items: [
+  //       item,
+  //       ...this.state.items,
+  //     ]
+  //   })
+  // }
 
   render() {
     return (
