@@ -39,6 +39,7 @@ class ShoppingCart extends React.Component {
   state = {
     items: [],
     products: [],
+
   }
 
   async componentDidMount() {
@@ -65,12 +66,17 @@ class ShoppingCart extends React.Component {
     return json._embedded.items
   }
 
+// --------------------------------------------------------------------------------------------------------
+
+
 // FETCH ALL OF THE PRODUCTS
   async getProducts() {
     const response = await fetch('http://localhost:8082/api/products')
     const json = await response.json()
     return json._embedded.products
   }
+// --------------------------------------------------------------------------------------------------------
+
 
 // POST THE DATA FROM AN ADDED ITEM TO THE SERVER
   itemWasAdded = async (item) => {
@@ -92,17 +98,8 @@ class ShoppingCart extends React.Component {
         ]
       })
     }
+// --------------------------------------------------------------------------------------------------------
 
-// LET THE USER KNOW THAT THE ITEM WAS ADDED
-  // itemWasAdded = (item) => {
-  //   item.id = this.state.items.length
-  //   this.setState({
-  //     items: [
-  //       item,
-  //       ...this.state.items,
-  //     ]
-  //   })
-  // }
 
   render() {
     return (
